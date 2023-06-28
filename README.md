@@ -1,16 +1,23 @@
-# Vue 3 + TypeScript + Vite
+# 项目描述
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+珠宝商人游戏项目，卡牌类游戏。（目前已有机器人玩家功能）
 
-## Recommended IDE Setup
+技术栈：Vue 3 + TypeScript + Vite + NativeUI
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+> 该项目是为了快速学习Vue3+TypeScript而编写的项目，存在不规范等代码问题，若大佬愿意指导欢迎issue提交或私信。
 
-## Type Support For `.vue` Imports in TS
+## 功能
+目前支持:创建房间、搜索房间、房间内添加机器人、房间内进行文字聊天、触发一些语音催促、对局详情面板。
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+# 初始化与前后端对接
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+在当前前端项目下执行: `npm install`
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+然后更改后端连接地址：
+
+1. main.ts文件中需要更改 ws连接地址为您当前地址。
+2. apis/index.ts文件中需要更改 baseUrl请求地址。
+
+# 问题
+
+目前在玩家非正常退出的现象下，房间显示还是有问题，但是正常游玩的情况下无问题
