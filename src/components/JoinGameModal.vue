@@ -9,14 +9,15 @@
     </n-card>
   </n-modal>
 </template>
-<script setup lang="ts">import { useMessage } from 'naive-ui';
-import { computed, onMounted, onUnmounted, reactive } from 'vue';
+<script setup lang="ts">
+import { useMessage } from 'naive-ui';
+import { computed, onMounted, reactive } from 'vue';
 import { useStore } from 'vuex';
 import { API_GET_USER_EXIST, API_POST_USER_CREATE } from '../apis/user';
 import User from '../entity/User';
 import { key } from '../store';
 import WSUtils from '../websocket';
-import { WS_ROOM_BIND_CHAENLE } from '../websocket/room';
+import { WS_ROOM_BIND_CHAENLE, WS_ROOM_HEAT } from '../websocket/room';
 
 const message = useMessage()
 
@@ -29,7 +30,6 @@ const modal_login = reactive({
 })
 
 
-var heatInterVal: number | null = null;
 function bindChanle() {
   WSUtils.sendClientRequestContent(
     {
@@ -37,22 +37,19 @@ function bindChanle() {
       sendId: store_user.value.id as string,
     }
   )
-  if (heatInterVal != null)
-    clearInterval(heatInterVal)
-  /* heatInterVal = setInterval(() => {
-    WSUtils.sendClientRequestContent(
+
+  WSUtils.sendClientRequestContent(
       {
-        type: 15,
+        type: WS_ROOM_HEAT,
         sendId: store_user.value.id as string,
       }
     )
-  }, 1000 * 5); */
 }
 var hiddenTime = 0;
 document.addEventListener('visibilitychange', function () {
   if (document.visibilityState == 'hidden') {
     hiddenTime = new Date().getTime()	//记录页面隐藏时间
-  } else if(hiddenTime !=0){
+  } else if (hiddenTime != 0) {
     let visibleTime = new Date().getTime();
     if ((visibleTime - hiddenTime) / 1000 > 10) {	//页面再次可见的时间-隐藏时间>10S,重连
       joinGame()
@@ -105,8 +102,5 @@ async function joinGame() {
 onMounted(() => {
   joinGame();
 });
-onUnmounted(() => {
-  if (heatInterVal != null)
-    clearInterval(heatInterVal)
-})
+
 </script>

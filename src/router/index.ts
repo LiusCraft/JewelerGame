@@ -4,7 +4,7 @@
  *                      这里的是hash模式，这个还可以是createWebHistory等
  * RouteRecordRaw 这个为要添加的路由记录，也可以说是routes的ts类型
  */
- import {createRouter, createWebHashHistory, RouteRecordRaw} from 'vue-router';
+ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
  // 路由记录，这个跟vue2中用法一致，就不做过多解释了
  const routes:Array<RouteRecordRaw> = [
    {
@@ -33,7 +33,7 @@
 
  router.beforeEach((to,from,next)=>{
   // 根据路由元信息设置文档标题
-  window.document.title = ((`${to.meta.title} - ` || "") as string) + "珠宝商人"
+  window.document.title = ((`${to.meta.title} - ` || "") as string) + "宝石商人"
   next()
 })
  export default router;

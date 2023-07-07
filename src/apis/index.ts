@@ -2,7 +2,6 @@ import axios, { AxiosResponse } from 'axios';
 import { createDiscreteApi } from 'naive-ui';
 const instance = axios.create({
   baseURL: 'http://gem.xhystudy.cn/api',
-  // baseURL: 'http://26.254.53.17:9000',
   timeout: 1000000,
   headers: {},
 });

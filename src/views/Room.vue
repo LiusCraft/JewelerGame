@@ -304,59 +304,59 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ArrowCircleLeft } from "@vicons/fa";
 import { SettingFilled } from "@vicons/antd";
+import { ArrowCircleLeft } from "@vicons/fa";
 import {
-  CountdownInst,
-  CountdownProps,
-  MentionOption,
-  TabsInst,
-  useDialog,
-  useMessage,
-  useNotification
+CountdownInst,
+CountdownProps,
+MentionOption,
+TabsInst,
+useDialog,
+useMessage,
+useNotification
 } from "naive-ui";
 import {
-  onMounted,
-  reactive,
-  ref,
-  computed,
-  nextTick,
-  watch,
-  onUnmounted,
-  effect
+computed,
+nextTick,
+onMounted,
+onUnmounted,
+reactive,
+ref,
+watch
 } from "vue";
 import { API_GET_GAME_INFO } from "../apis/game";
+import { API_GET_LOG_ROOM } from "../apis/log";
 import { API_GET_ROOM_INUSERS } from "../apis/room";
+import UserItem from "../components/UserItem.vue";
 import Card from "../components/card/Card.vue";
+import Nobilitie from "../components/card/Nobilitie.vue";
 import { ICard } from "../entity/Card";
 import { GemMap } from "../entity/Gem";
 import INobility from "../entity/Nobility";
 import R from "../entity/R";
 import Room from "../entity/Room";
-import User from "../entity/User";
 import Setting from "../entity/Setting";
+import User from "../entity/User";
 import router from "../router";
 import { store } from "../store";
 import WSUtils from "../websocket";
 import {
-  WS_ROOM_GIVE_CARD,
-  WS_ROOM_GIVE_GEM,
-  WS_ROOM_JOIN,
-  WS_ROOM_ROUND,
-  WS_ROOM_START,
-  WS_ROOM_SKIP_ROUND,
-  WS_ROOM_SKIP2_ROUND,
-  WS_ROOM_PRESS_CARD,
-  WS_ROOM_GIVE_NOBILITY,
-  WS_ROOM_SKIP_ROUND_GEM,
-  WS_ROOM_END,
-  WS_ROOM_LEAVE,
-  WS_ROOM_CHAT,
-  WS_ROOM_BOT_ADD
+WS_ROOM_BOT_ADD,
+WS_ROOM_CHAT,
+WS_ROOM_END,
+WS_ROOM_GIVE_CARD,
+WS_ROOM_GIVE_GEM,
+WS_ROOM_GIVE_NOBILITY,
+WS_ROOM_HEAT,
+WS_ROOM_JOIN,
+WS_ROOM_LEAVE,
+WS_ROOM_PRESS_CARD,
+WS_ROOM_ROUND,
+WS_ROOM_SKIP2_ROUND,
+WS_ROOM_SKIP_ROUND,
+WS_ROOM_SKIP_ROUND_GEM,
+WS_ROOM_START
 } from "../websocket/room";
-import UserItem from "../components/UserItem.vue";
-import Nobilitie from "../components/card/Nobilitie.vue";
-import { API_GET_LOG_ROOM } from "../apis/log";
 const store_user = computed(() => store.getters.getUser as User);
 const store_room = computed(() => store.getters.getRoom as Room);
 const store_setting = computed(() => store.getters.getSetting as Setting);
@@ -823,6 +823,8 @@ function initEvent() {
             case WS_ROOM_LEAVE:
             case WS_ROOM_BOT_ADD:
               getCurrentGameData();
+              break;
+            case WS_ROOM_HEAT:
               break;
             default:
               break;

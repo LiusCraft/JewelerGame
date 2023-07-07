@@ -63,3 +63,8 @@ export const WS_ROOM_PRESS_CARD = 13;
  * 跳过拿宝石回合
  */
  export const WS_ROOM_SKIP_ROUND_GEM = 14;
+
+ /**
+  * 心跳
+  */
+export const WS_ROOM_HEAT = 15;

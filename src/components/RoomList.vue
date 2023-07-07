@@ -47,21 +47,21 @@
 </template>
 
 <script setup lang="ts">
-import { h, onMounted, reactive, ref } from 'vue'
-import { NButton, useMessage, NInput, NTag, NButtonGroup, useDialog } from 'naive-ui'
-import type { DataTableColumns } from 'naive-ui'
-import router from '../router';
-import {
-  API_GET_ROOM_INUSERS,
-  API_GET_ROOM_PAGE, API_GET_ROOM_SEARCH, API_POST_ROOM_CREATE, API_POST_ROOM_JOIN
-} from '../apis/room';
 import { computed } from '@vue/reactivity';
-import { store } from '../store';
-import User from '../entity/User';
-import Room from '../entity/Room';
-import { WS_ROOM_JOIN } from '../websocket/room';
-import WSUtils from '../websocket';
+import type { DataTableColumns } from 'naive-ui';
+import { NButton, NButtonGroup, NInput, NTag, useDialog, useMessage } from 'naive-ui';
+import { h, onMounted, reactive, ref } from 'vue';
+import {
+API_GET_ROOM_INUSERS,
+API_GET_ROOM_PAGE, API_GET_ROOM_SEARCH, API_POST_ROOM_CREATE
+} from '../apis/room';
 import R from '../entity/R';
+import Room from '../entity/Room';
+import User from '../entity/User';
+import router from '../router';
+import { store } from '../store';
+import WSUtils from '../websocket';
+import { WS_ROOM_JOIN } from '../websocket/room';
 
 const store_user = computed(() => store.getters.getUser as User);
 const store_room = computed(() => store.getters.getRoom as Room);
@@ -160,6 +160,7 @@ type RoomRow = {
   maxPeople: number,
   roomOwnerId: string,
   roomOwnerName: string,
+  createTime: string
 }
 const playLoading = ref(false);
 const createColumns = ({
@@ -188,6 +189,10 @@ const createColumns = ({
           { default: () => `${row.curPeople}/${row.maxPeople}` }
         )
       }
+    },
+    {
+      title: '创建时间',
+      key: 'createTime'
     },
     {
       title: '创建人',

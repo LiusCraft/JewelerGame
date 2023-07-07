@@ -1,6 +1,6 @@
-import { InjectionKey } from "vue"
+import { InjectionKey } from "vue";
 import { createStore } from "vuex";
-import persistedState from 'vuex-persistedstate'
+import persistedState from 'vuex-persistedstate';
 import Room from "../entity/Room";
 import Setting from "../entity/Setting";
 import User from "../entity/User";
