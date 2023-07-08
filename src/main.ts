@@ -12,7 +12,7 @@ WSUtils.init("ws://gem.xhystudy.cn:12345/ws", () => {
   console.log("断开连接")
 }, null
 )
-/* WSUtils.init("ws://192.168.191.158:12345/ws", () => {
+/* WSUtils.init("ws://192.168.131.81:12345/ws", () => {
   console.log("链接成功")
 }, () => {
   console.log("断开连接")

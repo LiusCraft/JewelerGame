@@ -17,7 +17,7 @@ import { API_GET_USER_EXIST, API_POST_USER_CREATE } from '../apis/user';
 import User from '../entity/User';
 import { key } from '../store';
 import WSUtils from '../websocket';
-import { WS_ROOM_BIND_CHAENLE, WS_ROOM_HEAT } from '../websocket/room';
+import { WS_ROOM_BIND_CHAENLE } from '../websocket/room';
 
 const message = useMessage()
 
@@ -37,13 +37,6 @@ function bindChanle() {
       sendId: store_user.value.id as string,
     }
   )
-
-  WSUtils.sendClientRequestContent(
-      {
-        type: WS_ROOM_HEAT,
-        sendId: store_user.value.id as string,
-      }
-    )
 }
 var hiddenTime = 0;
 document.addEventListener('visibilitychange', function () {
