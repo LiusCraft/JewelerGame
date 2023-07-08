@@ -4,8 +4,10 @@
 
 我们将宝石商人这款桌游从线下搬到了线上，但我们只有前端以及后端且不是专业的游戏开发，在页面以及交互上会可能会有缺陷。
 
-这里是后端地址
-前端地址：
+
+[后端地址](https://gitee.com/XhyQAQ/gemstone-merchant)
+
+[前端地址](https://github.com/LiusCraft/JewelerGame)
 
 ## 游玩地址
 [宝石商人](http://gem.xhystudy.cn/#/)
