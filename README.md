@@ -11,7 +11,7 @@
 
 [前端地址](https://github.com/LiusCraft/JewelerGame)
 
-[游玩规则讲解]([https://github.com/LiusCraft/JewelerGame](https://www.bilibili.com/video/BV1kP411C7n1))
+[游玩规则讲解](https://www.bilibili.com/video/BV1kP411C7n1/)
 
 
 ## 游玩地址
