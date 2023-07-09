@@ -16,9 +16,9 @@
 
 ## 图片
 
-![首页](images/img1.png)
+![首页](images/img1.jpg)
 
-![游戏](images/img2.png)
+![游戏](images/img2.jpg)
 
 ## 功能
 
